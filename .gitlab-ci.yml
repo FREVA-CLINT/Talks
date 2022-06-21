@@ -1,0 +1,13 @@
+stages:
+    - doc
+pages:
+    image: python
+    stage: doc
+    tags:
+        - docker, specific
+    script:
+        - mv talks public
+    artifacts:
+        when: always
+        paths:
+            - public
