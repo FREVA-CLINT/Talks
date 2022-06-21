@@ -6,7 +6,7 @@ pages:
     tags:
         - docker, specific
     script:
-        - mv talks public
+        - python create_index.py
     artifacts:
         when: always
         paths:
