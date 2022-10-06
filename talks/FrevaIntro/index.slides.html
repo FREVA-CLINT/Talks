@@ -13395,7 +13395,7 @@ a.anchor-link {
 <p><p style="margin-bottom: -1cm; margin-top: -1cm;"></p></p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evaluation_system.api</span> <span class="kn">import</span> <span class="n">plugin</span>
 <span class="kn">from</span> <span class="nn">evaluation_system.api.parameters</span> <span class="kn">import</span> <span class="n">File</span><span class="p">,</span> <span class="n">ParameterDictionary</span><span class="p">,</span> <span class="n">SolrField</span>
-<span class="k">class</span> <span class="nc">PlottingTool</span><span class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">PluginAbstr</span><span class="o">|</span><span class="n">act</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">PlottingTool</span><span class="p">(</span><span class="n">plugin</span><span class="o">.</span><span class="n">PluginAbstract</span><span class="p">):</span>
 <span class="sd">&quot;&quot;&quot;Plugin that plots content of selected data.&quot;&quot;&quot;</span>
 </pre></div>
 
@@ -13437,7 +13437,7 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><p style="margin-bottom: -1cm; margin-top: -1cm;"></p></p>
 <div class="highlight"><pre><span></span><span class="c1"># Workflow definition of the actual tool</span>
- <span class="k">def</span> <span class="nf">runTool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">setup</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+ <span class="k">def</span> <span class="nf">run_tool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">setup</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;This method calls the actual plugin.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
           <span class="sa">f</span><span class="s2">&quot;python src/plot_map.py </span><span class="si">{</span><span class="n">setup</span><span class="p">[</span><span class="s1">&#39;in_file&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> -v </span><span class="si">{</span><span class="n">setup</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
