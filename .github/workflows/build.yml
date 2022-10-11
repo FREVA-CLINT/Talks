@@ -30,15 +30,6 @@ jobs:
       name: Create Pages
       run: python create_index.py
     -
-      name: Setup Pages
-      uses: actions/configure-pages@v2
-    -
-      name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        # Upload entire repository
-        path: './public'
-    -
       name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ github.ref == 'refs/heads/main' }}
