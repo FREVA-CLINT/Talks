@@ -1,0 +1,202 @@
+document.write(`
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Freva---Data-search-and-analysis-framework-for-the-Community">Freva - Data search and analysis framework for the Community<a class="anchor-link" href="#Freva---Data-search-and-analysis-framework-for-the-Community">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><center><img src="Logo.png" style="max-height:340px;"></img></center></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p style="color:black;font-size:18px;">by: Andrej Fast, Brian Lewis, Christopher Kadow, Etor Lucio Eceiza, Martin Bergemann and many others</p>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h4 style="text-align:center;">Common Problem I: Finding Data</h4>
+<img src="Figure_01.png" with="640px"></img></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h4 style="text-align:center;">Common Problem II: Use code of others</h4>
+<img src="Figure_02.png" with="640px"></img></p>
+
+</div>
+</div>
+</div></section>
+<section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p style="text-align:center;"><h4 style="text-align:center;">Common Problem III: Reproducibility</h4>
+<center>
+<img src="Figure_07.jpg" style="text-align: center;"></img>
+</center>
+</p>
+</div>
+</div>
+</div></section></section>
+<section><section>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>How can we search and access various datasets efficiently?</li>
+<li>How can we streamline user data analysis tools (reusable and reproducible)?</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Yet-another-solution">Yet another solution: <a class="anchor-link" href="#Yet-another-solution">&#182;</a></h1>
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 style="text-align:center; margin-bottom: .5cm;">Freva: The free evaluation system framework </h4>
+<center><img src="Logo.png" style="max-height:340px;"></img></center>
+</div>
+</div>
+</div>
+</section></section>
+
+<section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example:-Searching-and-reading-CMIP6-data">Example I: Searching and reading CMIP6 data<a class="anchor-link" href="#Example:-Searching-and-reading-CMIP6-data">&#182;</a></h2>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Python-call:">I. Python call:<a class="anchor-link" href="#Python-call:">&#182;</a></h4><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">freva</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">freva</span><span class="o">.</span><span class="n">databrowser</span><span class="p">(</span>
+    <span class="n">project</span><span class="o">=</span><span class="s2">&quot;cmip6&quot;</span><span class="p">,</span>
+    <span class="n">experiment</span><span class="o">=</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;mpi*&quot;</span><span class="p">,</span>
+    <span class="n">ensemble</span><span class="o">=</span><span class="s2">&quot;r1i1*&quot;</span><span class="p">,</span>
+    <span class="n">variable</span><span class="o">=</span><span class="s2">&quot;tas&quot;</span><span class="p">,</span>
+    <span class="n">time_frequency</span><span class="o">=</span><span class="s2">&quot;mon&quot;</span>
+<span class="p">)</span>
+<span class="n">dset</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s2">&quot;by_coords&quot;</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="CLI-call:">II. Command line call:<a class="anchor-link" href="#CLI-call:">&#182;</a></h4><div class="highlight"><pre><span></span>⋊  freva databrowser <span class="nv">project</span><span class="o">=</span>cmip6 <span class="nv">experiment</span><span class="o">=</span>historical <span class="nv">model</span><span class="o">=</span><span class="s1">&#39;mip*&#39;</span> <span class="nv">ensemble</span><span class="o">=</span><span class="s1">&#39;r1i1*&#39;</span> <span class="nv">time_frequency</span><span class="o">=</span>mon <span class="nv">variable</span><span class="o">=</span>tas
+</pre></div>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h4>III. Web user interface:</h4></p>
+<video controls loop height="550">
+    <source src="screencast_2.webm"type="video/webm">
+    Sorry, your browser doesn't support embedded videos.
+</video>
+</div>
+</div>
+</div></section>
+</section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-Data-analysis-tool-/-plugins">Example II: Data analysis tool / plugins<a class="anchor-link" href="#Example-Data-analysis-tool-/-plugins">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Calculate-climate-change-signal-and-uncertainty-in-D&#252;ren">Create animation of high resolution data<a class="anchor-link" href="#Calculate-climate-change-signal-and-uncertainty-in-D&#252;ren">&#182;</a></h3><ul>
+<li>Where is the data?</li>
+<li>Where are the tools/libraries? Like video codecs etc</li>
+<li>...</li>
+</ul>
+<p>Solution: Use an existing freva plugin.</p>
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h4 style="text-align:center; margin-bottom: -2cm;">The animator plugin:</h4>
+<video controls loop height="650">
+    <source src="screencast.webm"type="video/webm">
+    Sorry, your browser doesn't support embedded videos.
+</video>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<p><h4 style="text-align:center; margin-bottom: 0cm;">Plugin command line interface:</h4>
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span>⋊  freva plugin -l
+Animator: Animate data on lon/lat grids
+ClimateChangeProfile: Create climate change signals.
+ClimDexCalc: Calculate the ETCCDI climate extreme indices on the
+             basis of daily temperature and precipitation data using
+             the ClimDex software provided by PCIC.
+Climpact: Process climate model data for input of impact model
+CWT: Calculate Circulation Weather Type by mean sea level pressure.
+EnsemblePlotter: Create and Plot maps of multi-model ensemble means and
+                 standard deviations
+MoviePlotter: Plots 2D lon/lat movies in GIF format
+Papermill: Parametrize a given notebook
+</pre></div>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><b>freva-plugin animator variable=pr project=reanalysis experiment=era5 cmap=Blues</b>
+</pre></div>
+</div>
+</div>
+</div></section></section><section><section>
+ <footer>
+  <h3>Interested? Join our hands-on session in the afternoon</h3>
+  <p style="font-size: small;">Author:<a href="mailto:freva@dkrz.de" target=_blank>Martin Bergemann</a><br>
+    <a href="https://freva-clint.github.io/freva/" target=_blank>Freva user doc</a>
+  <br><a href="https://freva-deployment.readthedocs.io/en/latest/" target=_blank>Freva admin doc</a></p>
+</footer>
+
+`);
