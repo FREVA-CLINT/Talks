@@ -643,7 +643,7 @@ Model raw output postprocessing with modelling environment (IMDI) at DKRZ: URL: 
 
 
 
-### The data has bee loaded, we can work with it (plot it)
+### The data has been loaded, we can work with it (plot it)
 
 
 ```python
