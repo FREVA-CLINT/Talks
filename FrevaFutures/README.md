@@ -89,6 +89,6 @@ forward-looking.
 
 ## Examples
 There are two notebooks outlining the anticipated usage of the proposed
-mechanism [FuturesExample.ipynb] demonstrates the usage from python while
-[FuturesExample-Bash.ipynb] explains the same scenario for the `freva`
+mechanism [FuturesExample](FuturesExample.ipynb) demonstrates the usage from python while
+[FuturesExample-Bash](FuturesExample-Bash.ipynb) explains the same scenario for the `freva`
 command line interface.
