@@ -16,7 +16,10 @@ manages these future datasets through a sophisticated workflow that is both
 resource-efficient and highly adaptable.
 
 > ``📝`` The code of the prototype can be found in the `futures` branch of
-         the [freva GitHub repository](https://github.com/FREVA-CLINT/freva/tree/futures)
+         the [freva GitHub repository](https://github.com/FREVA-CLINT/freva/tree/futures).
+         Use the [FuturesExample](FuturesExample.ipynb) and
+         the [FuturesExample-Bash](FuturesExample-Bash.ipynb) to get an overview
+         on how to make use of the future freva concept.
 
 ### Terminology: Why Call These "Futures"?
 
@@ -92,3 +95,17 @@ There are two notebooks outlining the anticipated usage of the proposed
 mechanism [FuturesExample](FuturesExample.ipynb) demonstrates the usage from python while
 [FuturesExample-Bash](FuturesExample-Bash.ipynb) explains the same scenario for the `freva`
 command line interface.
+
+In order to use these notebooks on levante, log on to levante and execute the
+following commands:
+
+```console
+module load clint freva-dev
+jupyter-kernel-install bash -n frev-dev-bash -d freva-dev-bash
+jupyter-kernel-install python -n frev-dev -d freva-dev
+wget https://raw.githubusercontent.com/FREVA-CLINT/Talks/main/talks/FrevaFutures/FuturesExample-Bash.ipynb
+wget https://raw.githubusercontent.com/FREVA-CLINT/Talks/main/talks/FrevaFutures/FuturesExample.ipynb
+```
+
+You can then log on to [jupyterhub.dkrz.de](https://jupyterhub.dkrz.de/hub/home)
+to start the notebooks.
