@@ -1,5 +1,8 @@
 # The freva future Data API Architecture
 
+You can find a short reveal.js presentation
+following [this link](https://freva-clint.github.io/Talks/FrevaFutures/index.slides.html#/)
+
 ## Introduction
 
 The [freva](https://freva-clint.github.io/freva/) Future Data API is an
