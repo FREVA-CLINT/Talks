@@ -80,6 +80,13 @@ forward-looking.
     executed on-demand.
 3. The generated data replaces the "future" dataset representation in
     both Apache Solr and MariaDB.
+4. After the generated dataset are deleted a `check` command checks the
+    physical existence of the datasets. If the datasets are not existing anymore
+    the entry in the databrowser is set back to the special `future://` url
+    indicating that the data doesn't exist but can be recreated. The
+    feature can be using in a cron type job that regularly checks a cache
+    file system if data is still present or not giving users quick feed back
+    about the existence of data.
 
 ## Use Cases
 
@@ -88,7 +95,6 @@ forward-looking.
 - **New Datasets**: It can also generate completely new datasets, such as
     climate model simulations, by applying specific recipes encapsulated
     in Jupyter Notebooks.
-
 
 ## Examples
 There are two notebooks outlining the anticipated usage of the proposed
